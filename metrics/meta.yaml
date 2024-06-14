@@ -8,10 +8,12 @@ package:
 source:
   git_url: https://github.com/PyTorchLightning/metrics
   git_rev: v{{ version }}
+  patches:                                        #[ppc64le]
+    - 0001-Removed-pretty-errors-dependency.patch #[ppc64le]
 
 build:
   noarch: python
-  number: 1 
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:

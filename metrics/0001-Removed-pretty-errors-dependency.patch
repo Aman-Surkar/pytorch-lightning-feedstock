@@ -1,0 +1,36 @@
+From af0fc4873bef16221c57dee747b4e8c5817b5b6b Mon Sep 17 00:00:00 2001
+From: Aman Surkar <Aman.Surkar@ibm.com>
+Date: Fri, 14 Jun 2024 09:23:43 +0000
+Subject: [PATCH] Removed-pretty-errors-dependency
+
+---
+ requirements/base.txt        | 1 -
+ src/torchmetrics/__init__.py | 3 ---
+ 2 files changed, 4 deletions(-)
+
+diff --git a/requirements/base.txt b/requirements/base.txt
+index e41bba57..98b6123c 100644
+--- a/requirements/base.txt
++++ b/requirements/base.txt
+@@ -6,4 +6,3 @@ packaging >17.1
+ torch >=1.10.0, <2.4.0
+ typing-extensions; python_version < '3.9'
+ lightning-utilities >=0.8.0, <0.12.0
+-pretty-errors ==1.2.25
+diff --git a/src/torchmetrics/__init__.py b/src/torchmetrics/__init__.py
+index c1bff7ca..b1549dfa 100644
+--- a/src/torchmetrics/__init__.py
++++ b/src/torchmetrics/__init__.py
+@@ -14,9 +14,6 @@ _logger.setLevel(__logging.INFO)
+ _PACKAGE_ROOT = os.path.dirname(__file__)
+ _PROJECT_ROOT = os.path.dirname(_PACKAGE_ROOT)
+ 
+-if package_available("pretty_errors"):
+-    import pretty_errors  # noqa: F401
+-
+ if package_available("PIL"):
+     import PIL
+ 
+-- 
+2.40.1
+
